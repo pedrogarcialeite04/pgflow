@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PGFlow | Soluções Financeiras</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
@@ -14,6 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.35/build/spline-viewer.js"></script>
 </head>
 <body>
 
@@ -22,7 +24,8 @@
     <div class="cinema-stage">
         <div class="bg-layer active" id="bg-1"></div>
         <div class="bg-layer" id="bg-2"></div>
-        <div class="bg-layer" id="bg-4"></div> <div class="bg-layer" id="bg-3"></div>
+        <div class="bg-layer" id="bg-4"></div> 
+        <div class="bg-layer" id="bg-3"></div>
     </div>
 
     <div class="overlay-dark"></div>
@@ -60,9 +63,16 @@
     </nav>
 
     <main id="hero">
+        <div id="floating-lines-container"></div>
+
         <div class="hero-content">
             <span class="badge-new">SISTEMA ONLINE</span>
-            <h1>SEU CONTROLE <br> <span class="txt-gradient">DEFINITIVO</span></h1>
+            
+            <div class="bubble-container">
+                <h1 class="bubble-text">SEU CONTROLE</h1>
+                <h1 class="bubble-text txt-gradient-bubble">DEFINITIVO</h1>
+            </div>
+
             <p>Transforme planilhas complexas em dashboards intuitivos e poderosos. Teste a tecnologia abaixo.</p>
             
             <div class="hero-btns">
@@ -81,7 +91,7 @@
             </div>
         </div>
     </main>
-
+    
     <section id="live-demo">
         <div class="coin-wrapper">
             <div class="cube-container">
@@ -143,7 +153,7 @@
             <div class="mobile-text">
                 <span class="badge-new">NOVIDADE</span>
                 <h2>O PODER DO PGFlow <br> <span class="txt-gradient">NO SEU BOLSO</span></h2>
-                <p>Não espere chegar no escritório. Com a versão mobile, você lança gastos, confere o fluxo de caixa e toma decisões estratégicas enquanto toma um café. Sincronização em tempo real com criptografia de ponta a ponta.</p>
+                <p>Não espere chegar no escritório. Com a versão mobile, você lança gastos, confere o fluxo de caixa e toma decisões estratégicas enquanto toma um café.</p>
                 <div class="mobile-features">
                     <div class="feat-item"><i class="fa-solid fa-bolt"></i> Zero Latência</div>
                     <div class="feat-item"><i class="fa-solid fa-cloud"></i> Nuvem Segura</div>
@@ -168,13 +178,20 @@
             </div>
             
             <div class="offer-grid-modern">
-    
-                <div class="service-card-modern">
-                    <div class="card-border-glow"></div>
-                    <div class="card-content">
-                        <div class="s-icon"><i class="fa-solid fa-code"></i></div>
-                        <h3>Sistemas Web</h3>
-                        <p>Arquiteturas robustas para gestão, CRMs e SaaS. Performance extrema e escalabilidade para o seu negócio crescer sem travas.</p>
+                
+                <div class="robot-wrapper">
+                    <spline-viewer url="https://prod.spline.design/DgfXVngB-exH-a1W/scene.splinecode"></spline-viewer>
+                    
+                    <div class="logo-cover-container">
+                        <div class="pyramid-loader">
+                          <div class="wrapper">
+                            <span class="side side1"></span>
+                            <span class="side side2"></span>
+                            <span class="side side3"></span>
+                            <span class="side side4"></span>
+                            <span class="shadow"></span>
+                          </div>
+                        </div>
                     </div>
                 </div>
             
@@ -183,7 +200,7 @@
                     <div class="card-content">
                         <div class="s-icon"><i class="fa-solid fa-rocket"></i></div>
                         <h3>Alta Conversão</h3>
-                        <p>Landing Pages desenhadas psicologicamente para vender. Design persuasivo, carregamento instantâneo e SEO otimizado.</p>
+                        <p>Landing Pages desenhadas psicologicamente para vender. Design persuasivo e SEO otimizado.</p>
                     </div>
                 </div>
             
@@ -192,49 +209,14 @@
                     <div class="card-content">
                         <div class="s-icon"><i class="fa-solid fa-mobile-screen"></i></div>
                         <h3>Apps & Mobile</h3>
-                        <p>Interfaces que cabem no bolso. Responsividade total e experiência de usuário (UX) fluida em qualquer dispositivo.</p>
+                        <p>Interfaces que cabem no bolso. Responsividade total e experiência de usuário fluida.</p>
                     </div>
                 </div>
             
-                <div class="card-knowledge">
-                    <label for="flipper-check">
-                        <div class="card-inner">
-                            <div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div>
-                            <div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div>
-                            <div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div>
-                            <div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div>
-                            <div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div><div class="grid-tile"></div>
-
-                            <div class="side front">
-                                <span class="h1">ESTRUTURA</span>
-                                <p>
-                                    Desenvolvimento Front-End de alta fidelidade. Utilizei <strong>HTML5 Semântico</strong> para estruturação acessível e SEO otimizado, combinado com <strong>CSS3 Moderno</strong>. O layout responsivo explora arquiteturas Flexbox e Grid, enquanto o Glassmorphism garante a estética imersiva.
-                                </p>
-                                <span class="cta-text">CLIQUE PARA VER A LÓGICA <i class="fa-solid fa-rotate"></i></span>
-                                <div class="tech-watermark">
-                                   <i class="fa-brands fa-html5"></i>
-                                   <i class="fa-brands fa-css3-alt"></i>
-                                </div>
-                            </div>
-
-                            <div class="side back">
-                                <span class="h1">LÓGICA (JS)</span>
-                                <p>
-                                    Implementação de regras de negócio e interatividade. O <strong>JavaScript (ES6+)</strong> gerencia a manipulação do DOM e o estado da aplicação financeira. O cenário 3D e as transições de scroll são orquestrados via <strong>Three.js</strong> e <strong>GSAP</strong> para máxima performance via WebGL.
-                                </p>
-                                <span class="cta-text">VOLTAR PARA ESTRUTURA <i class="fa-solid fa-rotate-left"></i></span>
-                                <div class="tech-watermark js-style">
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <input type="checkbox" id="flipper-check" />
-                </div>
             </div>
 
             <div class="offer-cta-premium">
-                <div class="cta-content"><h3>PRECISA DE UMA CONSULTORIA?</h3><p>Transformo problemas complexos em softwares simples e lucrativos.</p></div>
+                <div class="cta-content"><h3>PRECISA DE UMA CONSULTORIA?</h3><p>Transformo problemas complexos em softwares simples.</p></div>
                 <a href="https://wa.me/5517996239598" target="_blank" class="btn-glass-glow">FALAR COMIGO AGORA <i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
@@ -245,7 +227,7 @@
             <div class="contact-text">
                 <h2>GOSTOU DO SISTEMA?</h2>
                 <h3>EU CRIO PARA VOCÊ.</h3>
-                <p>Transformo ideias complexas em softwares intuitivos. Sua gestão financeira, elevada ao próximo nível.</p>
+                <p>Transformo ideias complexas em softwares intuitivos.</p>
                 <div class="interactive-pointer">
                     <div class="pointer-circle"><i class="fa-solid fa-arrow-right-long"></i></div>
                     <span>CLIQUE NOS ÍCONES</span>
@@ -255,43 +237,19 @@
             <div class="flip-card-container">
                 <div class="card">
                     <div class="front">
-                        <div class="card-top">
-                            <p class="card-top-para">Social</p>
-                        </div>
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="color: var(--neon-purple);">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
-                        </svg>
-                        
+                        <div class="card-top"><p class="card-top-para">Social</p></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="color: var(--neon-purple);"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg>
                         <p class="heading">Pedro Garcia</p>
                         <p class="follow">Siga-me para mais</p>
                     </div>
-                    
                     <div class="back">
                         <p class="heading">Minhas Redes</p>
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16" style="color: var(--neon-blue);">
-                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                            <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"></path>
-                        </svg>
-
                         <div class="icons">
-                            <a href="https://www.instagram.com/pedrocadev?igsh=MTQ5Z3k2a2IwMjB3Mg%3D%3D&utm_source=qr" target="_blank" title="Instagram">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                            
-                            <a href="https://www.tiktok.com/@pedrogarciadev?_r=1&_t=ZS-92w2ThpSe9J" target="_blank" title="TikTok">
-                                <i class="fa-brands fa-tiktok"></i>
-                            </a>
-                            
-                            <a href="https://wa.me/5517996239598" target="_blank" title="WhatsApp">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/pedro-garcia-3ba820398" target="_blank" title="LinkedIn">
-                                <i class="fa-brands fa-linkedin"></i>
-                            </a>
+                            <a href="https://www.instagram.com/pedrocadev?igsh=MTQ5Z3k2a2IwMjB3Mg%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@pedrogarciadev?_r=1&_t=ZS-92w2ThpSe9J" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="https://wa.me/5517996239598" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.linkedin.com/in/pedro-garcia-3ba820398" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/pedrogarcialeite04" target="_blank"><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
                 </div>
