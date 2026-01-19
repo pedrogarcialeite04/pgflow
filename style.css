@@ -1425,3 +1425,277 @@ footer p {
   filter: blur(30px);
   opacity: 0.4;
 }
+/* ============================================================
+   GOD MODE: RESPONSIVIDADE ABSOLUTA (MOBILE & TABLET)
+   Adicione isso ao FINAL do seu style.css
+   ============================================================ */
+
+@media screen and (max-width: 1024px) {
+
+    /* --- 1. AJUSTES GERAIS DE ESTRUTURA --- */
+    body {
+        overflow-x: hidden; /* Garante que nada vaze lateralmente */
+        width: 100vw;
+    }
+
+    /* Otimização de Texto: Reduz títulos gigantes para caber na tela */
+    h1, .bubble-text { font-size: 2.2rem !important; line-height: 1.2; }
+    h2 { font-size: 1.8rem !important; }
+    p { font-size: 0.95rem !important; padding: 0 15px; }
+
+    /* Navbar: Empilha logo e links ou ajusta tamanho */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(5, 5, 5, 0.95); /* Fundo escuro para leitura */
+        padding: 15px;
+        position: fixed; /* Fixa no topo */
+    }
+    .nav-links {
+        gap: 15px;
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tilt-button-wrapper { display: none; /* Remove botão 3D pesado do menu no mobile */ }
+
+
+    /* --- 2. HERO & PORTAL --- */
+    #hero {
+        padding-top: 120px; /* Espaço para a nav fixa */
+        align-items: flex-start; /* Sobe o conteúdo */
+        overflow: hidden;
+    }
+    .hero-content { width: 100%; padding: 0 15px; }
+
+
+    /* --- 3. REMOÇÃO DE PESO MORTO (ELEMENTOS 3D DECORATIVOS) --- */
+    /* Remove o Cubo Flutuante que atrapalha a leitura no mobile */
+    .coin-wrapper, 
+    .cube-container { 
+        display: none !important; 
+    }
+    
+    /* Remove o Robô 3D (Spline) se estiver pesado, ou ajusta altura */
+    .robot-wrapper {
+        height: 300px; /* Menor no mobile */
+        pointer-events: none; /* Evita que o usuário fique preso girando o robô ao scrollar */
+    }
+    .logo-cover-container { bottom: -60px; right: -40px; transform: scale(0.7); }
+
+
+    /* --- 4. SIMULADOR FINANCEIRO (CIRURGIA PRINCIPAL) --- */
+    .dashboard-wrapper {
+        /* Muda de Grid (Lado a Lado) para Flex (Um embaixo do outro) */
+        display: flex;
+        flex-direction: column;
+        
+        /* Ocupa a largura total segura */
+        max-width: 95% !important; 
+        margin: 0 auto;
+        width: 100%;
+        
+        /* Remove altura fixa se houver */
+        height: auto;
+    }
+
+    .dash-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 20px;
+    }
+
+    .dash-main {
+        padding: 20px 15px;
+        width: 100%;
+    }
+
+    /* Cards de Saldo (Verde/Vermelho) */
+    .cards-display {
+        grid-template-columns: 1fr; /* Um embaixo do outro para leitura fácil */
+        gap: 10px;
+    }
+
+    /* Área do Gráfico e Lista */
+    .dash-grid {
+        grid-template-columns: 1fr; /* Empilha gráfico e lista */
+        gap: 20px;
+    }
+
+    .chart-area, .list-area {
+        height: auto;
+        min-height: 250px; /* Altura mínima para o gráfico não sumir */
+    }
+
+    /* Ajuste da tabela de histórico para não cortar texto */
+    .tx-row {
+        flex-direction: column; /* Texto em cima, valor embaixo */
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .tx-actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+
+    /* --- 5. SEÇÕES FINAIS (MOBILE APP, SERVIÇOS, CONTATO) --- */
+    .mobile-content, 
+    .contact-container, 
+    .offer-cta-premium {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Celular 3D */
+    .mobile-visual { transform: scale(0.9); margin-top: -30px; }
+    
+    /* Cards de Serviço */
+    .offer-grid-modern {
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-card-modern { width: 100%; max-width: 100%; }
+
+    /* Contato */
+    .interactive-pointer { justify-content: center; }
+}
+/* ============================================================
+   GOD MODE: RESPONSIVIDADE VISUAL & FUNCIONAL
+   Adicione ao FINAL do style.css
+   ============================================================ */
+
+@media screen and (max-width: 1024px) {
+
+    /* --- 1. ESTRUTURA GLOBAL --- */
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* Títulos e Textos ajustados (não visualmente alterados, apenas escala) */
+    h1, .bubble-text { font-size: 2rem !important; line-height: 1.1; }
+    h2 { font-size: 1.8rem !important; }
+    p { font-size: 0.95rem !important; padding: 0 15px; }
+
+
+    /* --- 2. NAVBAR: ESTILO IDENTICO AO PC (TRANSPARENTE & HORIZONTAL) --- */
+    nav {
+        flex-direction: row; /* Mantém na horizontal */
+        justify-content: space-between;
+        align-items: center;
+        background: transparent !important; /* Transparente igual PC */
+        position: absolute;
+        width: 100%;
+        padding: 10px 15px;
+        flex-wrap: wrap; /* Permite quebrar linha se for muito estreito */
+    }
+
+    .logo img {
+        height: 40px; /* Levemente menor para caber */
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 0.75rem; /* Fonte menor para caber na tela */
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto; /* Centraliza se quebrar linha */
+    }
+
+    /* Mantém o botão 3D, mas menor */
+    .tilt-button-wrapper {
+        transform: scale(0.8);
+        margin-left: auto;
+    }
+    
+    /* Se a tela for MUITO pequena, esconde o botão orçamento para priorizar links */
+    @media (max-width: 400px) {
+        .tilt-button-wrapper { display: none; }
+    }
+
+
+    /* --- 3. HERO & PORTAL --- */
+    #hero {
+        /* Garante que o conteúdo fique visível e centralizado */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .hero-content {
+        width: 100%; 
+        padding: 0 15px; 
+        margin-top: 60px; /* Compensa a navbar */
+    }
+
+
+    /* --- 4. REMOÇÃO DO CUBO (ITEM FORA DE TELA) --- */
+    .coin-wrapper, 
+    .cube-container { 
+        display: none !important; 
+    }
+    
+    /* Ajuste do Robô */
+    .robot-wrapper {
+        height: 350px;
+        pointer-events: none;
+    }
+    .logo-cover-container { transform: scale(0.7); bottom: -50px; right: -30px; }
+
+
+    /* --- 5. SIMULADOR FINANCEIRO (ARRASTADO PARA BAIXO / NÃO CORTADO) --- */
+    .dashboard-wrapper {
+        /* Empilhamento vertical para caber tudo */
+        display: flex;
+        flex-direction: column;
+        
+        width: 95% !important; 
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .dash-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 20px;
+    }
+
+    .dash-main {
+        padding: 20px 15px;
+        width: 100%;
+    }
+
+    /* Layout Interno do Simulador */
+    .cards-display { grid-template-columns: 1fr; gap: 10px; }
+    .dash-grid { grid-template-columns: 1fr; gap: 20px; }
+    .chart-area, .list-area { height: auto; min-height: 250px; }
+    
+    /* Ajuste da lista para não cortar texto */
+    .tx-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .tx-actions { width: 100%; justify-content: space-between; margin-top: 5px; }
+
+
+    /* --- 6. SEÇÕES FINAIS --- */
+    .mobile-content, 
+    .contact-container, 
+    .offer-cta-premium {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mobile-visual { transform: scale(0.9); margin-top: -30px; }
+    
+    .offer-grid-modern { flex-direction: column; align-items: center; }
+    .service-card-modern { width: 100%; max-width: 100%; }
+    
+    .interactive-pointer { justify-content: center; }
+}

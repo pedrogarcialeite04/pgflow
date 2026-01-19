@@ -199,8 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initChart();
     gsap.registerPlugin(ScrollTrigger);
     
-    // --- LÓGICA DO PORTAL / WARP SPEED (NOVO) ---
-    // Esta timeline "pina" o Hero e faz o efeito de túnel
+    // --- LÓGICA DO PORTAL / WARP SPEED (FIXED FOR MOBILE) ---
+    // Removida a restrição de tamanho de tela. O Portal funciona no mobile também.
+    
     let portalTL = gsap.timeline({
         scrollTrigger: {
             trigger: "#hero",
@@ -260,49 +261,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- REVEAL ELEMENTS (ENTRADA SUAVE) ---
-    // Configuração padrão da animação (sobe 100px e aparece)
     const revealSettings = { y: 100, opacity: 0, duration: 0.8, ease: "power3.out" };
     
-    // Configuração do gatilho de scroll
     const scrollConfig = (trigger, startPos = "top 85%") => ({
         trigger: trigger,
         start: startPos, 
         end: "bottom 15%",
-        toggleActions: "play none none reverse" // Toca ao entrar, reverte ao sair por cima
+        toggleActions: "play none none reverse"
     });
 
-    // 1. Elementos do topo (Hero/Demo/Mobile)
     gsap.from(".dashboard-wrapper", { scrollTrigger: scrollConfig(".dashboard-wrapper"), ...revealSettings, scale: 0.95 });
-    gsap.from(".cube-container", { scrollTrigger: scrollConfig(".cube-container"), ...revealSettings, y: -150, delay: 0.2 });
+    
+    // Verifica se o cubo existe e está visível antes de animar
+    const cubeCont = document.querySelector('.cube-container');
+    if(cubeCont && window.getComputedStyle(cubeCont).display !== 'none'){
+        gsap.from(".cube-container", { scrollTrigger: scrollConfig(".cube-container"), ...revealSettings, y: -150, delay: 0.2 });
+    }
+    
     gsap.from(".mobile-text", { scrollTrigger: scrollConfig(".mobile-text"), ...revealSettings, x: -50 });
     gsap.from(".phone-card", { scrollTrigger: scrollConfig(".phone-card"), ...revealSettings, x: 50, delay: 0.1 });
 
-    // 2. Elementos abaixo do celular (Serviços e Contato) - REVISADO
-    
-    // Título "Soluções sob medida"
     gsap.from(".offer-header", { 
         scrollTrigger: scrollConfig(".offer-header", "top 90%"), 
         ...revealSettings, y: 50 
     });
 
-    // O Robô e os Cards de Serviço (animam em sequência)
-    // Usei '.robot-wrapper' para pegar o container do robô
     gsap.utils.toArray('.robot-wrapper, .service-card-modern').forEach((card, i) => {
         gsap.from(card, { 
             scrollTrigger: scrollConfig(card, "top 85%"), 
             ...revealSettings, 
-            delay: i * 0.15 // Pequeno atraso entre um e outro
+            delay: i * 0.15 
         });
     });
 
-    // Botão CTA "Falar comigo agora"
     gsap.from(".offer-cta-premium", { 
         scrollTrigger: scrollConfig(".offer-cta-premium", "top 90%"), 
         ...revealSettings, 
         scale: 0.95 
     });
 
-    // Seção de Contato (Texto e os Cards Giratórios)
     gsap.from(".contact-text", { scrollTrigger: scrollConfig(".contact-text"), ...revealSettings, x: -50 });
     gsap.from(".flip-card-container", { scrollTrigger: scrollConfig(".flip-card-container"), ...revealSettings, x: 50, rotateY: 30, delay: 0.2 });
 
@@ -333,27 +330,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// --- 5. LÓGICA BUBBLE TEXT (SEPARADOR DE LETRAS) ---
+// --- 5. LÓGICA BUBBLE TEXT ---
 document.addEventListener('DOMContentLoaded', () => {
     const bubbles = document.querySelectorAll('.bubble-text');
-
     bubbles.forEach(textElement => {
         const text = textElement.innerText;
         textElement.innerHTML = text.split("").map((char) => {
-            if (char === " ") {
-                return `<span class="hover-char" style="min-width: 0.8rem;">&nbsp;</span>`;
-            }
+            if (char === " ") return `<span class="hover-char" style="min-width: 0.8rem;">&nbsp;</span>`;
             return `<span class="hover-char">${char}</span>`;
         }).join("");
     });
 });
 
 
-// --- 6. ANIMAÇÃO DE INTRODUÇÃO (LOAD) ---
+// --- 6. ANIMAÇÃO DE INTRODUÇÃO ---
 window.addEventListener('load', () => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Sequência de entrada dos elementos do Hero
     tl.from(".logo img", { y: -50, opacity: 0, duration: 1, ease: "back.out(1.7)" })
     .from(".nav-links li", { y: -30, opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.8")
     .from(".tilt-button-wrapper", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }, "-=0.6")
